@@ -4,7 +4,9 @@
 
 Structured Query Language, 结构化查询语言。
 
-### 1. 数据操作类 SQL 语句
+### SQL 语言的组成
+
+#### 1. 数据操作类 SQL 语句
 | 语句 | 功能 | 
 | --- | --- |
 | SELECT | 从数据库表中既爱你所数据行和列 |
@@ -12,7 +14,7 @@ Structured Query Language, 结构化查询语言。
 | DELETE | 从数据库中删除数据记录 |
 | UPDATE | 修改现有的数据库中的数据 |
 
-### 2. 数据定义类 SQL 语句
+#### 2. 数据定义类 SQL 语句
 
 | 语句 | 功能 |
 |  --- |  --- |
@@ -33,7 +35,7 @@ Structured Query Language, 结构化查询语言。
 | ALTER DOMAIN | 改变域定义 |
 | DROP DOMAIN | 从数据库中删除一个域 |
 
-### 3. 数据控制类 SQL 语句
+#### 3. 数据控制类 SQL 语句
 
 | 语句 | 功能 |
 |  --- |  --- |
@@ -41,7 +43,7 @@ Structured Query Language, 结构化查询语言。
 | DENY | 拒绝用户访问 |
 | REVOKE | 删除用户访问权限 |
 
-### 4. 事务控制类 SQL 语句
+#### 4. 事务控制类 SQL 语句
 
 | 语句 | 功能 |
 | --- | --- |
@@ -49,7 +51,7 @@ Structured Query Language, 结构化查询语言。
 | ROLLBACK | 回滚事务 |
 | SET TRANSACTION | 定义当前事务数据访问特征 |
 
-### 5. 程序化 SQL 语句
+#### 5. 程序化 SQL 语句
 
 | 语句 | 功能 |
 | --- | --- |
@@ -62,16 +64,25 @@ Structured Query Language, 结构化查询语言。
 | EXECUTE | 动态执行 SQL 语句 |
 | DESCRIBE | 描述准备好的查询 |
 
+### SQL 语句结构
 
+每条 SQL 语句由一个 Verb(谓词) 开始，该谓词描述这条语句将要产生的动作，例如 SELECT 或 UPDATE 关键字。谓词后紧接着一条或多条 CLAUSE(子句)，子句中给出了被谓词作用的数据或提供谓词动作的详细信息。
 
+每个查询语句都要有 SELECT 和 FROM 关键字，语法如下：
 
+```SQL
+SELECT 子句
+[INTO 子句]
+FROM 子句
+[WHERE 子句]
+[GROUP BY 子句]
+[HAVING 子句]
+[ORDER BY 子句]
+```
 
+示例：
 
-
-
-
-
-
-
-
-
+```sql
+/* 使用 SELECT 关键字查询 goods 商品信息表，并且使用 ORDER BY 关键字按照“商品编号”降序排列该表中的相关信息 */
+SELECT * FROM goods ORDER BY goods_id DESC
+```
